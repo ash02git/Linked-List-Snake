@@ -28,6 +28,9 @@ namespace Level
 	{
 		background_rectangle = nullptr;
 		background_rectangle = new UI::UIElement::RectangleShapeView();
+
+		border_rectangle = nullptr;
+		border_rectangle = new UI::UIElement::RectangleShapeView();
 	}
 	LevelView::~LevelView()
 	{
