@@ -30,5 +30,6 @@ namespace Player
 	}
 	void PlayerService::spawnPlayer()
 	{
+		snake_controller->spawnSnake();
 	}
 }
