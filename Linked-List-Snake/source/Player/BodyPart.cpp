@@ -42,6 +42,51 @@ namespace Player
 			return 180.f;
 		}
 	}
+	sf::Vector2i BodyPart::getNextPositionUp()
+	{
+		return sf::Vector2i(grid_position.x,grid_position.y + 1);
+	}
+	sf::Vector2i BodyPart::getNextPositionDown()
+	{
+		return sf::Vector2i(grid_position.x, grid_position.y - 1);
+	}
+	sf::Vector2i BodyPart::getNextPositionLeft()
+	{
+		return sf::Vector2i(grid_position.x-1, grid_position.y);
+	}
+	sf::Vector2i BodyPart::getNextPositionRight()
+	{
+		return sf::Vector2i(grid_position.x + 1, grid_position.y);
+	}
+	sf::Vector2i BodyPart::getNextPosition()
+	{
+		switch (direction)
+		{
+		case Direction::UP:
+			return getNextPositionUp();
+			break;
+		case Direction::DOWN:
+			return getNextPositionDown();
+			break;
+		case Direction::LEFT:
+			return getNextPositionLeft();
+			break;
+		case Direction::RIGHT:
+			return getNextPositionRight();
+			break;
+		default:
+			return grid_position;
+			break;
+		}
+	}
+	Direction BodyPart::getDirection()
+	{
+		return direction;
+	}
+	sf::Vector2i BodyPart::getPosition()
+	{
+		return grid_position;
+	}
 	BodyPart::~BodyPart()
 	{
 		delete(bodypart_image);
@@ -68,5 +113,9 @@ namespace Player
 	void BodyPart::setDirection(Direction dir)
 	{
 		direction = dir;
+	}
+	void BodyPart::setPosition(sf::Vector2i pos)
+	{
+		grid_position = pos;
 	}
 }
