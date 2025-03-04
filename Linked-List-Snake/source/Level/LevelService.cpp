@@ -9,6 +9,7 @@ namespace Level
 	}
 	LevelService::LevelService()
 	{
+		level_controller = nullptr;
 		level_controller = new LevelController();
 	}
 	LevelService::~LevelService()
@@ -20,6 +21,16 @@ namespace Level
 	{
 		current_level = level_to_load;
 		spawnPlayer();
+	}
+
+	float LevelService::getCellWidth()
+	{
+		return level_controller->getCellWidth();
+	}
+
+	float LevelService::getCellHeight()
+	{
+		return level_controller->getCellHeight();
 	}
 
 	void LevelService::initialize()

@@ -1,6 +1,7 @@
 #include "../../include/Player/BodyPart.h"
 #include "../../include/Global/Config.h"
 #include "../../include/Level/LevelView.h"
+#include <iostream>
 
 namespace Player
 {
@@ -98,6 +99,10 @@ namespace Player
 		direction = dir;
 		grid_position = pos;
 
+		std::cout << "Inside body part.cpp initialize"<< std::endl;
+		std::cout << "Body part width is " << bodypart_width << std::endl;
+		std::cout << "Body part height is " << bodypart_height << std::endl;
+
 		initializeBodyPartImage();
 	}
 	void BodyPart::updatePosition()//updates position, rotation 
@@ -108,6 +113,8 @@ namespace Player
 	}
 	void BodyPart::render()
 	{
+		std::cout << "Body part images width = " << bodypart_width << std::endl;
+		std::cout << "Body part images height = " << bodypart_height << std::endl;
 		bodypart_image->render();
 	}
 	void BodyPart::setDirection(Direction dir)

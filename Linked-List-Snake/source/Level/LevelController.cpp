@@ -27,10 +27,10 @@ namespace Level
 	}
 	float LevelController::getCellWidth()
 	{
-		return level_view->getGridWidth();
+		return level_model->getCellWidth();//changed from level_view to level_model
 	}
 	float LevelController::getCellHeight()
 	{
-		return level_view->getGridHeight();
+		return level_model->getCellHeight();//changed from level_view to level_model
 	}
 }

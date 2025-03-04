@@ -1,6 +1,7 @@
 #include "../../include/Level/LevelView.h"
 #include "../../include/Global/ServiceLocator.h"
 
+#include <iostream>
 namespace Level
 {
 	void LevelView::initializeBackground()
@@ -39,8 +40,8 @@ namespace Level
 	}
 	void LevelView::initialize()
 	{
-		calculateGridExtents();
 		initializeBackground();
+		calculateGridExtents();
 		initializeBorder();
 	}
 	void LevelView::update()
@@ -55,10 +56,12 @@ namespace Level
 	}
 	float LevelView::getGridWidth()
 	{
+		std::cout << "Grid width passed from LevelView is "<<grid_width<< std::endl;
 		return grid_width;
 	}
 	float LevelView::getGridHeight()
 	{
+		std::cout << "Grid height passed from LevelView is " << grid_height << std::endl;
 		return grid_height;
 	}
 
@@ -68,5 +71,8 @@ namespace Level
 
 		grid_width = game_window->getSize().x - 2 * border_offset_left;
 		grid_height = game_window->getSize().y - 2 * border_offset_top;
+
+		std::cout << "Grid width is " << grid_width << std::endl;
+		std::cout << "Grid height is " << grid_width << std::endl;
 	}
 }

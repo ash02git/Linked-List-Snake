@@ -138,6 +138,7 @@
     <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
     <ClCompile Include="source\Level\LevelView.cpp" />
+    <ClCompile Include="source\LinkedList\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
@@ -168,9 +169,10 @@
     <ClInclude Include="include\Level\LevelNumber.h" />
     <ClInclude Include="include\Level\LevelService.h" />
     <ClInclude Include="include\Level\LevelView.h" />
+    <ClInclude Include="include\LinkedList\SingleLinkedList.h" />
     <ClInclude Include="include\Player\BodyPart.h" />
     <ClInclude Include="include\Player\Direction.h" />
-    <ClInclude Include="include\Player\Node.h" />
+    <ClInclude Include="include\LinkedList\Node.h" />
     <ClInclude Include="include\Player\PlayerService.h" />
     <ClInclude Include="include\Player\SnakeController.h" />
     <ClInclude Include="include\Time\TimeService.h" />
@@ -193,6 +195,38 @@
     <ClInclude Include="include\UI\UIElement\TextView.h" />
     <ClInclude Include="include\UI\UIService.h" />
     <ClInclude Include="include\UI\UIElement\UIView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\alcohol.png" />
+    <Image Include="assets\textures\apple.png" />
+    <Image Include="assets\textures\burger.png" />
+    <Image Include="assets\textures\cheese.png" />
+    <Image Include="assets\textures\double_linked_list_button.png" />
+    <Image Include="assets\textures\instructions_button.png" />
+    <Image Include="assets\textures\level_one_button.png" />
+    <Image Include="assets\textures\level_two_button.png" />
+    <Image Include="assets\textures\mango.png" />
+    <Image Include="assets\textures\menu_button.png" />
+    <Image Include="assets\textures\obstacle.png" />
+    <Image Include="assets\textures\orange.png" />
+    <Image Include="assets\textures\outscal_logo.png" />
+    <Image Include="assets\textures\pizza.png" />
+    <Image Include="assets\textures\play_button.png" />
+    <Image Include="assets\textures\poision.png" />
+    <Image Include="assets\textures\quit_button.png" />
+    <Image Include="assets\textures\single_linked_list_button.png" />
+    <Image Include="assets\textures\snake_bg.png" />
+    <Image Include="assets\textures\snake_body.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sounds\background_music.mp3" />
+    <Media Include="assets\sounds\button_click_sound.wav" />
+    <Media Include="assets\sounds\death_sound.wav" />
+    <Media Include="assets\sounds\pickup_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\fonts\bubbleBobble.ttf" />
+    <Font Include="assets\fonts\DS_DIGIB.TTF" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

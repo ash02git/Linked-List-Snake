@@ -13,6 +13,7 @@ namespace Level
 
 		float grid_width;
 		float grid_height;
+
 		UI::UIElement::RectangleShapeView* border_rectangle;
 
 		void initializeBackground();
