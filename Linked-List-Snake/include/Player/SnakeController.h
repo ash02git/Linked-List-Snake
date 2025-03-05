@@ -21,6 +21,9 @@ namespace Player
 		const Direction default_direction = Direction::RIGHT;
 		Direction current_snake_direction;
 
+		const float movement_frame_duration = 0.1f;
+		float elapsed_duration;
+
 		void processPlayerInput();
 		void updateSnakeDirection();
 		void moveSnake();
@@ -29,6 +32,8 @@ namespace Player
 		void reset();
 
 		void createLinkedList();
+
+		void delayedUpdate();
 	public:
 		SnakeController();
 		~SnakeController();

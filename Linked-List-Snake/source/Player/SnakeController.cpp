@@ -53,6 +53,22 @@ namespace Player
 	void SnakeController::createLinkedList()
 	{
 		single_linked_list = new LinkedList::SingleLinkedList();
+		current_snake_state = SnakeState::ALIVE;
+	}
+	void SnakeController::delayedUpdate()
+	{
+		elapsed_duration += Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+		if (elapsed_duration >= movement_frame_duration)
+		{
+			elapsed_duration = 0.f;
+			updateSnakeDirection();
+			processSnakeCollission();
+
+			if (current_snake_state != SnakeState::DEAD)
+				moveSnake();
+			//current_input_state = InputState::WAITING;
+		}
 	}
 	void SnakeController::initialize()
 	{
@@ -67,9 +83,7 @@ namespace Player
 		{
 		case SnakeState::ALIVE:
 			processPlayerInput();
-			updateSnakeDirection();
-			processSnakeCollission();
-			moveSnake();
+			delayedUpdate();
 			break;
 		case SnakeState::DEAD:
 			handleRestart();
