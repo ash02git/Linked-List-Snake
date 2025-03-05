@@ -1,6 +1,7 @@
 #include "../../include/Player/BodyPart.h"
 #include "../../include/Global/Config.h"
 #include "../../include/Level/LevelView.h"
+#include "../../include/Level/LevelModel.h"
 #include <iostream>
 
 namespace Player
@@ -45,19 +46,19 @@ namespace Player
 	}
 	sf::Vector2i BodyPart::getNextPositionUp()
 	{
-		return sf::Vector2i(grid_position.x,grid_position.y - 1);
+		return sf::Vector2i(grid_position.x, (grid_position.y - 1 + (Level::LevelModel::number_of_rows)) % (Level::LevelModel::number_of_rows));
 	}
 	sf::Vector2i BodyPart::getNextPositionDown()
 	{
-		return sf::Vector2i(grid_position.x, grid_position.y + 1);
+		return sf::Vector2i(grid_position.x, (grid_position.y + 1) % (Level::LevelModel::number_of_rows));
 	}
 	sf::Vector2i BodyPart::getNextPositionLeft()
 	{
-		return sf::Vector2i(grid_position.x-1, grid_position.y);
+		return sf::Vector2i((grid_position.x - 1 + Level::LevelModel::number_of_columns+1) % (Level::LevelModel::number_of_columns+1), grid_position.y);
 	}
 	sf::Vector2i BodyPart::getNextPositionRight()
 	{
-		return sf::Vector2i(grid_position.x + 1, grid_position.y);
+		return sf::Vector2i((grid_position.x + 1) % (Level::LevelModel::number_of_columns+1), grid_position.y);
 	}
 	sf::Vector2i BodyPart::getNextPosition()
 	{
