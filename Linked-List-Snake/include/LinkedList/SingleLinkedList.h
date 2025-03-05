@@ -15,6 +15,7 @@ namespace LinkedList
 		Node* createNode();
 
 		sf::Vector2i getNewNodePosition(Node* reference_node);
+		
 	public:
 		SingleLinkedList();
 		~SingleLinkedList();
@@ -23,5 +24,8 @@ namespace LinkedList
 		void render();
 
 		void insertNodeAtTail();
+
+		void updateNodeDirection(Player::Direction direction_to_set);
+		void updateNodePosition();
 	};
 }

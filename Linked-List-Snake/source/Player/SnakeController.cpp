@@ -14,12 +14,32 @@ namespace Player
 	}
 	void SnakeController::processPlayerInput()
 	{
+		Event::EventService* event_service = Global::ServiceLocator::getInstance()->getEventService();
+
+		if (event_service->pressedUpArrowKey() && current_snake_direction != Direction::DOWN)
+		{
+			current_snake_direction = Direction::UP;
+		}
+		if (event_service->pressedDownArrowKey() && current_snake_direction != Direction::UP)
+		{
+			current_snake_direction = Direction::DOWN;
+		}
+		if (event_service->pressedLeftArrowKey() && current_snake_direction != Direction::RIGHT)
+		{
+			current_snake_direction = Direction::LEFT;
+		}
+		if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
+		{
+			current_snake_direction = Direction::RIGHT;
+		}
 	}
 	void SnakeController::updateSnakeDirection()
 	{
+		single_linked_list->updateNodeDirection(current_snake_direction);
 	}
 	void SnakeController::moveSnake()
 	{
+		single_linked_list->updateNodePosition();
 	}
 	void SnakeController::processSnakeCollission()
 	{
