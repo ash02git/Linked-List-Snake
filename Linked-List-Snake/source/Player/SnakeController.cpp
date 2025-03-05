@@ -43,6 +43,10 @@ namespace Player
 	}
 	void SnakeController::processSnakeCollission()
 	{
+		if (single_linked_list->processNodeCollission())
+		{
+			current_snake_state = SnakeState::DEAD;
+		}
 	}
 	void SnakeController::handleRestart()
 	{
