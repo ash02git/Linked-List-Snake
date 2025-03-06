@@ -70,6 +70,8 @@ namespace Player
 		current_snake_direction = default_direction;
 		elapsed_duration = 0.0f;
 		restart_counter = 0.0f;
+
+		current_input_state = InputState::WAITING;
 	}
 	void SnakeController::createLinkedList()
 	{
