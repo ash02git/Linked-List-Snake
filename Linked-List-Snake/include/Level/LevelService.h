@@ -11,6 +11,8 @@ namespace Level
 		LevelNumber current_level;
 
 		void spawnPlayer();
+
+		void spawnLevelElements(LevelNumber level_to_load);
 	public:
 		LevelService();
 		~LevelService();

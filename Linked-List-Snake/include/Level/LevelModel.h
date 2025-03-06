@@ -1,15 +1,20 @@
 #pragma once
 #include "../../include/Level/LevelData.h"
 #include <vector>
+
 namespace Level
 {
 	class LevelModel
 	{
 	private:
-		std::vector<LevelData> level_configruations;
+		std::vector<LevelData> level_configurations;
 		float cell_width;
 		float cell_height; 
 
+		std::vector<Element::ElementData> level_one_element_list = {};
+		std::vector<Element::ElementData> level_two_element_list = {};
+
+		void initializeLevelData();
 	public:
 		static const int number_of_rows = 27;//changed to 27
 		static const int number_of_columns = 50;
@@ -21,5 +26,7 @@ namespace Level
 
 		float getCellWidth();
 		float getCellHeight();
+
+		const std::vector<Element::ElementData>& getElementDataList(int level_to_load);
 	};
 }

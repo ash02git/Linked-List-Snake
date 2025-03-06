@@ -33,4 +33,8 @@ namespace Level
 	{
 		return level_model->getCellHeight();//changed from level_view to level_model
 	}
+	const std::vector<Element::ElementData>& LevelController::getElementDataList(int level_to_load)
+	{
+		return level_model->getElementDataList(level_to_load);
+	}
 }
