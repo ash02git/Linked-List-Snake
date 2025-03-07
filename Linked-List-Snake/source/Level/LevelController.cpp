@@ -1,4 +1,6 @@
 #include "../../include/Level/LevelController.h"
+//#include "../../include/Level/LevelModel.h"   was forward declared, but later included to include ElementData.h which was included in LevelModel.h
+#include "../../include/Level/LevelView.h"
 
 namespace Level
 {

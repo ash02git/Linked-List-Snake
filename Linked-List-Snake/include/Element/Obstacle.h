@@ -1,5 +1,5 @@
 #pragma once
-#include "../../include/UI/UIElement/ImageView.h"
+#include "UI/UIElement/ImageView.h"
 
 namespace Element
 {
@@ -8,6 +8,7 @@ namespace Element
 	private:
 		UI::UIElement::ImageView* obstacle_image;
 		sf::Vector2i grid_position;
+
 		float cell_width;
 		float cell_height;
 
@@ -17,7 +18,7 @@ namespace Element
 		Obstacle();
 		~Obstacle();
 
-		void initialize(sf::Vector2i grid_pos, float width, float height);
+		void initialize(sf::Vector2i grid_pos,float width,float height);
 		void update();
 		void render();
 	};

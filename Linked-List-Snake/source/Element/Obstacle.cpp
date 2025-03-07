@@ -4,18 +4,13 @@
 
 namespace Element
 {
-	
 	Obstacle::Obstacle()
 	{
+		obstacle_image = new UI::UIElement::ImageView();
 	}
 	Obstacle::~Obstacle()
 	{
-	}
-	void Obstacle::initializeObstacleImage()
-	{
-		sf::Vector2f screen_position = getObstacleImagePosition();
-		obstacle_image->initialize(Global::Config::obstacle_texture_path, cell_width, cell_height, screen_position);
-		obstacle_image->show();
+		delete(obstacle_image);
 	}
 	sf::Vector2f Obstacle::getObstacleImagePosition()
 	{
@@ -23,6 +18,13 @@ namespace Element
 		float screen_position_y = Level::LevelView::border_offset_top + (cell_height * grid_position.y);
 		return sf::Vector2f(screen_position_x, screen_position_y);
 	}
+	void Obstacle::initializeObstacleImage()
+	{
+		sf::Vector2f screen_position = getObstacleImagePosition();
+		obstacle_image->initialize(Global::Config::obstacle_texture_path, cell_width, cell_height, screen_position);
+		obstacle_image->show();
+	}
+	
 	void Obstacle::initialize(sf::Vector2i grid_pos, float width, float height)
 	{
 		grid_position = grid_pos;

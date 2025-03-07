@@ -1,9 +1,10 @@
 #pragma once
-#include "../../include/Level/LevelController.h"
 #include "../../include/Level/LevelNumber.h"
 
 namespace Level
 {
+	class LevelController;
+
 	class LevelService
 	{
 	private:
@@ -12,7 +13,7 @@ namespace Level
 
 		void spawnPlayer();
 
-		void spawnLevelElements(LevelNumber level_to_load);
+		void spawnLevelElements(Level::LevelNumber level_to_load);//this function was added after setting up levelModel to include elementdata
 	public:
 		LevelService();
 		~LevelService();

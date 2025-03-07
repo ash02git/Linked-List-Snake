@@ -1,9 +1,11 @@
 #pragma once
-#include "../../include/Level/LevelModel.h"
-#include "../../include/Level/LevelView.h"
+#include "Level/LevelModel.h"
 
 namespace Level
 {
+	//class LevelModel;// was forward declared, but later included to include ElementData.h which was included in LevelModel.h
+	class LevelView;
+	
 	class LevelController
 	{
 	private:
