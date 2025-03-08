@@ -14,14 +14,20 @@ namespace Food
 
 	FoodService::~FoodService()
 	{
-		if(current_food_item)
-			delete(current_food_item);
+		destroyFood();
 	}
 	void FoodService::initialize()
 	{
+		elapsed_duration = spawn_duration;
 	}
 	void FoodService::update()
 	{
+		if (current_spawning_status == FoodSpawningStatus::ACTIVE)
+		{
+			updateElapsedDuration();
+			handleFoodSpawning();
+		}
+
 		if (current_food_item)
 			current_food_item->update();
 	}
@@ -32,15 +38,27 @@ namespace Food
 	}
 	void FoodService::startFoodSpawning()
 	{
+		current_spawning_status = FoodSpawningStatus::ACTIVE;
+
 		cell_width = Global::ServiceLocator::getInstance()->getLevelService()->getCellWidth();
 		cell_height = Global::ServiceLocator::getInstance()->getLevelService()->getCellHeight();
+	}
 
-		spawnFood();
+	void FoodService::stopFoodSpawning()
+	{
+		current_spawning_status = FoodSpawningStatus::INACTIVE;
+		destroyFood();
+		reset();
 	}
 
 	void FoodService::spawnFood()
 	{
 		current_food_item = createFood(getRandomPosition(), getRandomFoodType());
+	}
+	void FoodService::destroyFood()
+	{
+		if (current_food_item)
+			delete(current_food_item);
 	}
 	FoodItem* FoodService::createFood(sf::Vector2i position, FoodType type)
 	{
@@ -86,5 +104,22 @@ namespace Food
 	{
 		std::uniform_int_distribution<int> distribution(0, FoodItem::number_of_foods - 1);
 		return static_cast<FoodType>(distribution(random_engine));
+	}
+	void FoodService::reset()
+	{
+		elapsed_duration = 0.0f;
+	}
+	void FoodService::updateElapsedDuration()
+	{
+		elapsed_duration += Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+	void FoodService::handleFoodSpawning()
+	{
+		if (elapsed_duration >= spawn_duration)
+		{
+			destroyFood();
+			reset();
+			spawnFood();
+		}
 	}
 }

@@ -7,6 +7,12 @@ namespace Food
 	enum class FoodType;
 	class FoodItem;
 	
+	enum FoodSpawningStatus
+	{
+		ACTIVE,
+		INACTIVE
+	};
+
 	class FoodService
 	{
 	private:
@@ -21,7 +27,13 @@ namespace Food
 		// To give random seed to generator.
 		std::random_device random_device;
 
+		const float spawn_duration = 4.0f;
+		float elapsed_duration;
+
+		FoodSpawningStatus current_spawning_status;
+
 		void spawnFood();
+		void destroyFood();
 		FoodItem* createFood(sf::Vector2i position, FoodType type);
 
 		sf::Vector2i getRandomPosition();
@@ -30,6 +42,12 @@ namespace Food
 		sf::Vector2i getValidSpawnPosition();
 
 		FoodType getRandomFoodType();
+
+		void reset();
+
+		void updateElapsedDuration();
+
+		void handleFoodSpawning();
 	public:
 		FoodService();
 		~FoodService();
@@ -39,5 +57,6 @@ namespace Food
 		void render();
 
 		void startFoodSpawning();
+		void stopFoodSpawning();
 	};
 }
