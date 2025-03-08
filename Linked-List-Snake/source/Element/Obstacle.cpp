@@ -41,4 +41,8 @@ namespace Element
 	{
 		obstacle_image->render();
 	}
+	sf::Vector2i Obstacle::getObstaclePosition()
+	{
+		return grid_position;
+	}
 }
