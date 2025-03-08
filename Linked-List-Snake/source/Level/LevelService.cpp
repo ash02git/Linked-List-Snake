@@ -16,6 +16,10 @@ namespace Level
 		std::vector<Element::ElementData> element_data_list = level_controller->getElementDataList((int)level_to_load);
 		Global::ServiceLocator::getInstance()->getElementService()->spawnElements(element_data_list, cell_width, cell_height);
 	}
+	void LevelService::spawnFood()
+	{
+		Global::ServiceLocator::getInstance()->getFoodService()->startFoodSpawning();
+	}
 	LevelService::LevelService()
 	{
 		level_controller = nullptr;
@@ -31,6 +35,8 @@ namespace Level
 		current_level = level_to_load;
 
 		spawnLevelElements(level_to_load);
+
+		spawnFood();
 
 		spawnPlayer();
 	}

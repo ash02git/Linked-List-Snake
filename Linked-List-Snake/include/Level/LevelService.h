@@ -14,6 +14,8 @@ namespace Level
 		void spawnPlayer();
 
 		void spawnLevelElements(Level::LevelNumber level_to_load);//this function was added after setting up levelModel to include elementdata
+
+		void spawnFood();
 	public:
 		LevelService();
 		~LevelService();
