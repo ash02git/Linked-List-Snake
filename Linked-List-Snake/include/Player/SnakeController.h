@@ -44,6 +44,10 @@ namespace Player
 		void createLinkedList();
 
 		void delayedUpdate();
+
+		void processBodyCollission();
+		void processElementsCollission();
+		void processFoodCollission();
 	public:
 		SnakeController();
 		~SnakeController();
