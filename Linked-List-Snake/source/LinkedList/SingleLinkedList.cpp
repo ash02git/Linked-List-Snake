@@ -126,6 +126,10 @@ namespace LinkedList
 
 		return nodes_position_list;
 	}
+	Node* SingleLinkedList::getHeadNode()
+	{
+		return head_node;
+	}
 	void SingleLinkedList::insertNodeAtTail()
 	{
 		Node* new_node = createNode();
