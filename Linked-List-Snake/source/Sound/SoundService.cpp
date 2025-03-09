@@ -24,6 +24,9 @@ namespace Sound
 
 		if (!buffer_snake_death.loadFromFile(Config::death_sound_path))
 			printf("Error loading death sound file");
+
+		if (!buffer_food_pickup.loadFromFile(Config::pickup_sound_path))
+			printf("Error loading food pikcup sound file");
 	}
 
 	void SoundService::playSound(SoundType soundType)
@@ -35,6 +38,9 @@ namespace Sound
 			break;
 		case SoundType::DEATH:
 			sound_effect.setBuffer(buffer_snake_death);
+			break;
+		case SoundType::PICKUP:
+			sound_effect.setBuffer(buffer_food_pickup);
 			break;
 		default:
 			printf("Invalid sound type");

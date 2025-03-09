@@ -51,6 +51,23 @@ namespace Food
 		reset();
 	}
 
+	bool FoodService::processFoodCollission(LinkedList::Node* head_node, FoodType& out_food_type)
+	{
+		if (current_food_item && current_food_item->getFoodPosition() == head_node->body_part.getPosition())
+		{
+			out_food_type = current_food_item->getFoodType();
+
+			destroyFood();//new line added
+			reset();
+			spawnFood();
+			return true;
+		}
+
+		return false;
+	}
+
+	
+
 	void FoodService::spawnFood()
 	{
 		current_food_item = createFood(getRandomPosition(), getRandomFoodType());

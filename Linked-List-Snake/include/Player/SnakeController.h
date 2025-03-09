@@ -1,6 +1,8 @@
 #pragma once
 #include "../../include/LinkedList/SingleLinkedList.h"
 
+#include "../../include/Food/FoodType.h"
+
 namespace Player
 {
 	enum class SnakeState
@@ -48,6 +50,8 @@ namespace Player
 		void processBodyCollission();
 		void processElementsCollission();
 		void processFoodCollission();
+
+		void OnFoodCollected(Food::FoodType type);
 	public:
 		SnakeController();
 		~SnakeController();

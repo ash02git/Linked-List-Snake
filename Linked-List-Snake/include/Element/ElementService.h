@@ -1,11 +1,13 @@
 #pragma once
 #include <vector>
 #include <SFML/System/Vector2.hpp>//this might be causing circular dependancy, bcoz ElementService.cpp file includes Obstacle.h which already includes ImageView, which might include Vector2.hpp
+#include "../../include/LinkedList/Node.h"
 
 namespace Element
 {
 	class Obstacle;
 	struct ElementData;
+	class Node;
 	
 	class ElementService
 	{
@@ -24,5 +26,7 @@ namespace Element
 		const void spawnElements(std::vector<ElementData>& element_data_list,float cell_width,float cell_height);
 
 		std::vector<sf::Vector2i> getElementsPositionList();
+
+		bool processElementsCollission(LinkedList::Node* head_node);
 	};
 }

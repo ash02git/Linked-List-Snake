@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 #include <random>
+#include "LinkedList/Node.h"
 
 namespace Food
 {
@@ -33,7 +34,6 @@ namespace Food
 		FoodSpawningStatus current_spawning_status;
 
 		void spawnFood();
-		void destroyFood();
 		FoodItem* createFood(sf::Vector2i position, FoodType type);
 
 		sf::Vector2i getRandomPosition();
@@ -58,5 +58,9 @@ namespace Food
 
 		void startFoodSpawning();
 		void stopFoodSpawning();
+
+		void destroyFood();
+
+		bool processFoodCollission(LinkedList::Node* head_node, FoodType& out_food_type);
 	};
 }
