@@ -20,7 +20,10 @@ namespace Sound
 	void SoundService::loadSoundFromFile()
 	{
 		if (!buffer_button_click.loadFromFile(Config::button_click_sound_path))
-			printf("Error loading background music file");
+			printf("Error loading button click file");
+
+		if (!buffer_snake_death.loadFromFile(Config::death_sound_path))
+			printf("Error loading death sound file");
 	}
 
 	void SoundService::playSound(SoundType soundType)
@@ -29,6 +32,9 @@ namespace Sound
 		{
 		case SoundType::BUTTON_CLICK:
 			sound_effect.setBuffer(buffer_button_click);
+			break;
+		case SoundType::DEATH:
+			sound_effect.setBuffer(buffer_snake_death);
 			break;
 		default:
 			printf("Invalid sound type");

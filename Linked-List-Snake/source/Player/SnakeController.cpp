@@ -50,11 +50,28 @@ namespace Player
 	}
 	void SnakeController::processSnakeCollission()
 	{
+		processBodyCollission();
+		processElementsCollission();
+		processFoodCollission();
+	}
+
+	void SnakeController::processBodyCollission()
+	{
 		if (single_linked_list->processNodeCollission())
 		{
 			current_snake_state = SnakeState::DEAD;
+			Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::DEATH);//add snke dead sound
 		}
 	}
+
+	void SnakeController::processElementsCollission()
+	{
+	}
+
+	void SnakeController::processFoodCollission()
+	{
+	}
+
 	void SnakeController::handleRestart()
 	{
 		restart_counter += Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
@@ -92,6 +109,7 @@ namespace Player
 			current_input_state = InputState::WAITING;
 		}
 	}
+	
 	void SnakeController::initialize()
 	{
 		float width = Global::ServiceLocator::getInstance()->getLevelService()->getCellWidth();
