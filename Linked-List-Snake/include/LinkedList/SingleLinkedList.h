@@ -28,6 +28,8 @@ namespace LinkedList
 		void initializeNode(Node* new_node, Node* reference_node, Operation operation);
 
 		void shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node);
+
+		int findMiddleNode();
 		
 	public:
 		SingleLinkedList();
@@ -51,5 +53,6 @@ namespace LinkedList
 
 		void insertNodeAtHead();
 		void insertNodeAtIndex(int index);
+		void insertNodeAtMiddle();
 	};
 }
