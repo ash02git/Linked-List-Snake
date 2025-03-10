@@ -19,6 +19,8 @@ namespace LinkedList
 		sf::Vector2i default_position;
 		Player::Direction default_direction;
 
+		int linked_list_size;
+
 		Node* createNode();
 
 		sf::Vector2i getNewNodePosition(Node* reference_node,Operation operation);
@@ -44,5 +46,7 @@ namespace LinkedList
 		std::vector<sf::Vector2i> getNodesPositionList();
 
 		Node* getHeadNode();
+
+		void insertNodeAtHead();
 	};
 }
