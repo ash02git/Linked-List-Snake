@@ -74,6 +74,22 @@ namespace LinkedList
 
 		initializeNode(cur_node, prev_node, Operation::TAIL);
 	}
+	int SingleLinkedList::findMiddleNode()
+	{
+		Node* slow = head_node;
+		Node* fast = head_node;
+		int midIndex = 0;  // This will track the index of the middle node.
+
+		// Move fast pointer at 2x speed and slow pointer at 1x speed.
+		while (fast != nullptr && fast->next != nullptr) {
+			slow = slow->next;
+			fast = fast->next->next;
+			midIndex++;
+		}
+
+		// Now, slow is at the middle node
+		return midIndex;
+	}
 	void SingleLinkedList::updateNodeDirection(Player::Direction direction_to_set)
 	{
 		Node* cur_node = head_node;
@@ -195,6 +211,16 @@ namespace LinkedList
 		linked_list_size++;
 
 		shiftNodesAfterInsertion(new_node, cur_node, prev_node);
+	}
+	void SingleLinkedList::insertNodeAtMiddle()
+	{
+		if (head_node == nullptr) {
+			insertNodeAtHead();             
+			return;
+		}
+
+		int midIndex = findMiddleNode();
+		insertNodeAtIndex(midIndex);      
 	}
 	void SingleLinkedList::insertNodeAtTail()
 	{
