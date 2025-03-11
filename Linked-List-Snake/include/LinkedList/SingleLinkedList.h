@@ -64,5 +64,11 @@ namespace LinkedList
 		void insertNodeAtMiddle();
 
 		Node* findNodeAtIndex(int index);
+
+
+		Player::Direction getReverseDirection(Player::Direction reference_direction);
+
+		void reverseNodeDirections();
+		Player::Direction reverse();
 	};
 }
