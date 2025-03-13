@@ -39,7 +39,7 @@ namespace LinkedList
 		void initialize(float width, float height, sf::Vector2i position, Player::Direction direction);
 		void render();
 
-		void insertNodeAtTail();
+		
 
 		void updateNodeDirection(Player::Direction direction_to_set);
 		void updateNodePosition();
@@ -60,11 +60,11 @@ namespace LinkedList
 		Node* getHeadNode();
 
 		void insertNodeAtHead();
+		void insertNodeAtTail();
 		void insertNodeAtIndex(int index);
 		void insertNodeAtMiddle();
 
 		Node* findNodeAtIndex(int index);
-
 
 		Player::Direction getReverseDirection(Player::Direction reference_direction);
 
