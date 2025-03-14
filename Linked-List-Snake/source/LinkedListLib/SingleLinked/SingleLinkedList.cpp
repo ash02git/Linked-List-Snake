@@ -1,4 +1,5 @@
 #include "../../include/LinkedListLib/SingleLinked/SingleLinkedList.h"
+#include "LinkedListLib/SingleLinked/SingleNode.h"
 
 namespace LinkedListLib
 {
@@ -9,7 +10,7 @@ namespace LinkedListLib
 
 		Node* SingleLinkedList::createNode()
 		{
-			return new Node();
+			return new SingleNode();
 		}
 		void SingleLinkedList::shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node)
 		{
@@ -85,8 +86,27 @@ namespace LinkedListLib
 			}
 			else
 			{
-				removeNodeAt(index);
+				removeNodeAtIndex(index);
 			}
+		}
+		void SingleLinkedList::removeNodeAtIndex(int index)
+		{
+			linked_list_size--;
+			int current_index = 0;
+			Node* cur_node = head_node;
+			Node* prev_node = nullptr;
+
+			while (cur_node != nullptr && current_index < index)
+			{
+				prev_node = cur_node;
+				cur_node = cur_node->next;
+				current_index++;
+			}
+
+			prev_node->next = cur_node->next;
+
+			shiftNodesAfterRemoval(cur_node);
+			delete(cur_node);
 		}
 		void SingleLinkedList::removeNodeAtMiddle()
 		{
