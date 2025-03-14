@@ -203,7 +203,7 @@
     <ClInclude Include="include\Player\Direction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\LinkedList\Node.h">
+    <ClInclude Include="include\LinkedListLib\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Player\BodyPart.h">
@@ -231,6 +231,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LinkedListLib\SingleLinked\SingleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LinkedListLib\DoubleLinked\DoubleNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
