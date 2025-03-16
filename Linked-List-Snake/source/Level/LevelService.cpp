@@ -6,7 +6,7 @@ namespace Level
 {
 	void LevelService::spawnPlayer()
 	{
-		Global::ServiceLocator::getInstance()->getPlayerService()->spawnPlayer();
+		Global::ServiceLocator::getInstance()->getPlayerService()->spawnPlayer(current_linked_list_type);
 	}
 	void LevelService::spawnLevelElements(Level::LevelNumber level_to_load)
 	{

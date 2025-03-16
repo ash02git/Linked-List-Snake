@@ -1,7 +1,7 @@
 #pragma once
-#include "../../include/LinkedListLib/SingleLinked/SingleLinkedList.h"
-
+#include "LinkedListLib/LinkedList.h"
 #include "../../include/Food/FoodType.h"
+#include "Level/LevelConfig.h"
 
 namespace Player
 {
@@ -42,7 +42,7 @@ namespace Player
 	private:
 		const int initial_snake_length = 10;
 		SnakeState current_snake_state;
-		LinkedListLib::SingleLinked::SingleLinkedList* single_linked_list;
+		LinkedListLib::LinkedList* linked_list;
 
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const Direction default_direction = Direction::RIGHT;
@@ -61,6 +61,8 @@ namespace Player
 		TimeComplexity time_complexity;
 		LinkedListOperations last_linked_list_operation;
 
+		void initializeLinkedList();
+
 		void processPlayerInput();
 		void updateSnakeDirection();
 		void moveSnake();
@@ -68,7 +70,7 @@ namespace Player
 		void handleRestart();
 		void reset();
 
-		void createLinkedList();
+		
 
 		void delayedUpdate();
 
@@ -80,6 +82,8 @@ namespace Player
 	public:
 		SnakeController();
 		~SnakeController();
+
+		void createLinkedList(Level::LinkedListType level_type);
 
 		void initialize();
 		void update();
