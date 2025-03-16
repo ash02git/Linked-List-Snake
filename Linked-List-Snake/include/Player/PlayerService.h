@@ -31,5 +31,7 @@ namespace Player
 
 		TimeComplexity getTimeComplexity();
 		LinkedListOperations getLastOperation();
+
+		bool isPlayerDead();
 	};
 }

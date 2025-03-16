@@ -275,4 +275,11 @@ namespace Player
 	{
 		return last_linked_list_operation;
 	}
+	bool SnakeController::isSnakeDead()
+	{
+		if (current_snake_state == SnakeState::DEAD)
+			return true;
+
+		return false;
+	}
 }
