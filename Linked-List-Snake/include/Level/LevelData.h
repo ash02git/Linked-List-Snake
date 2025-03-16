@@ -1,5 +1,5 @@
 #pragma once
-#include "../../include/Level/LevelNumber.h"
+#include "../../include/Level/LevelConfig.h"
 #include "../../include/Element/ElementData.h"//might be a problem for circular dependancy
 
 namespace Level

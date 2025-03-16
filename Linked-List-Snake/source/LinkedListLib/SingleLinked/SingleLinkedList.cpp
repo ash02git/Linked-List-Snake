@@ -59,25 +59,6 @@ namespace LinkedListLib
 		}
 		void SingleLinkedList::removeNodeAt(int index)
 		{
-			int current_index = 0;
-			Node* cur_node = head_node;
-			Node* prev_node = nullptr;
-
-			while (cur_node != nullptr && current_index < index)
-			{
-				prev_node = cur_node;
-				cur_node = cur_node->next;
-				current_index++;
-			}
-
-			prev_node->next = cur_node->next;
-
-			shiftNodesAfterRemoval(cur_node);
-			delete(cur_node);
-			linked_list_size--;
-		}
-		void SingleLinkedList::removeNodeAt(int index)
-		{
 			if (index < 0 || index >= linked_list_size) return;
 
 			if (index == 0)

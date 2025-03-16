@@ -244,8 +244,8 @@ namespace LinkedListLib
 				cur_node = cur_node->next;
 				previous_node_position = temp_node_position;
 				previous_node_direction = temp_node_direction;
+			}
 		}
-}
 		Player::Direction DoubleLinkedList::reverse()
 		{
 			Node* cur_node = head_node;
@@ -267,4 +267,5 @@ namespace LinkedListLib
 			reverseNodeDirections();
 			return head_node->body_part.getDirection();
 		}
+	}
 }
