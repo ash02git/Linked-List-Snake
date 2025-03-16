@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 #include <random>
-#include "LinkedList/Node.h"
+#include "LinkedListLib/Node.h"
 
 namespace Food
 {
@@ -61,6 +61,6 @@ namespace Food
 
 		void destroyFood();
 
-		bool processFoodCollission(LinkedList::Node* head_node, FoodType& out_food_type);
+		bool processFoodCollission(LinkedListLib::Node* head_node, FoodType& out_food_type);
 	};
 }

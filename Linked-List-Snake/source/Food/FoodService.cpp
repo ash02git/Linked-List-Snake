@@ -51,7 +51,7 @@ namespace Food
 		reset();
 	}
 
-	bool FoodService::processFoodCollission(LinkedList::Node* head_node, FoodType& out_food_type)
+	bool FoodService::processFoodCollission(LinkedListLib::Node* head_node, FoodType& out_food_type)
 	{
 		if (current_food_item && current_food_item->getFoodPosition() == head_node->body_part.getPosition())
 		{

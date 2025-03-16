@@ -70,7 +70,7 @@ namespace Player
 	{
 		Element::ElementService* element_service = Global::ServiceLocator::getInstance()->getElementService();
 
-		if (element_service->processElementsCollission(single_linked_list->getHeadNode()))
+		if (element_service->processElementsCollission(single_linked_list->getNodeHead()))
 		{
 			current_snake_state = SnakeState::DEAD;
 			Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::DEATH);
@@ -82,7 +82,7 @@ namespace Player
 		Food::FoodService* food_service = Global::ServiceLocator::getInstance()->getFoodService();
 		Food::FoodType food_type;
 
-		if (food_service->processFoodCollission(single_linked_list->getHeadNode(), food_type))
+		if (food_service->processFoodCollission(single_linked_list->getNodeHead(), food_type))
 		{
 			player_score++;
 			Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::PICKUP);
@@ -173,7 +173,7 @@ namespace Player
 	}
 	void SnakeController::createLinkedList()
 	{
-		single_linked_list = new LinkedList::SingleLinkedList();
+		single_linked_list = new LinkedListLib::SingleLinked::SingleLinkedList();
 		current_snake_state = SnakeState::ALIVE;
 	}
 	void SnakeController::delayedUpdate()

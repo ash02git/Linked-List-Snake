@@ -39,7 +39,7 @@ namespace Element
 	{
 		return std::vector<sf::Vector2i>();
 	}
-	bool ElementService::processElementsCollission(LinkedList::Node* head_node)
+	bool ElementService::processElementsCollission(LinkedListLib::Node* head_node)
 	{
 		for (int i = 0; i < obstacle_list.size(); i++)
 		{

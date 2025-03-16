@@ -1,5 +1,5 @@
 #pragma once
-#include "../../include/LinkedList/SingleLinkedList.h"
+#include "../../include/LinkedListLib/SingleLinked/SingleLinkedList.h"
 
 #include "../../include/Food/FoodType.h"
 
@@ -42,7 +42,7 @@ namespace Player
 	private:
 		const int initial_snake_length = 10;
 		SnakeState current_snake_state;
-		LinkedList::SingleLinkedList* single_linked_list;
+		LinkedListLib::SingleLinked::SingleLinkedList* single_linked_list;
 
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const Direction default_direction = Direction::RIGHT;
